@@ -8,11 +8,11 @@
  * Service in the workspaceApp.
  */
 angular.module('workspaceApp')
-  .factory('County', ['$http', '$log', function($http) {
+  .factory('County', ['$http', function($http) {
 
       return{
           get: function() {
-              return $http.get('data/geo_data/geo_data.json');
+              return $http.get('data/geo_data.json');
           }
       };
       	
