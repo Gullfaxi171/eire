@@ -5,7 +5,7 @@
   "commands": {
     "Grunt Serve": "grunt serve",
     "Grunt Test": "grunt test",
-    "Grunt Build": "grunt",
+    "Grunt Build": "grunt --force",
     "Grunt Serve:Dist": "grunt serve:dist"
   },
 

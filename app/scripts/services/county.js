@@ -8,6 +8,13 @@
  * Service in the workspaceApp.
  */
 angular.module('workspaceApp')
-  .service('County', function County() {
-    // AngularJS will instantiate a singleton by calling "new" on this function
-  });
+  .factory('County', ['$http', '$log', function($http) {
+
+      return{
+          get: function() {
+              return $http.get('data/geo_data/geo_data.json');
+          }
+      };
+      	
+      
+  }]);
