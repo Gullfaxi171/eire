@@ -1,0 +1,24 @@
+{
+    "photospheres":[
+        {
+            "id":"photosphere_001",
+            "name":"Howth Peninsula",
+            "filename":"images/howth.jpg",
+            "description":"Photosphere of Dublin\"s harbour",
+            "coords":{
+                "x":300,
+                "y":350
+            }
+        },
+        {
+            "id":"photosphere_002",
+            "name":"Wiclow Mountains",
+            "filename":"images/wiclow.jpg",
+            "description":"Photosphere of Wiclow Mountains",
+            "coords":{
+                "x":500,
+                "y":550
+            }
+        }
+    ]
+}

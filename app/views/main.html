@@ -1,25 +1,40 @@
-<div raphael id="canvas_france"></div>
+<button class="btn btn-success" ng-click="show3D()">Objet 3D</button>
+<button class="btn btn-warning" ng-click="showPhotosphere()">Photosphere</button>
 
-<!--<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<div raphael id="canvas_eire"></div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+<!------------------------------>
+<!--      3D item modal       -->
+<!------------------------------>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>-->
+<script type="text/ng-template" id="countyModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Un objet 3D</h3>
+    </div>
+    <div class="modal-body">
+        <p class="text-center">
+            <iframe width="640" height="480" src="https://sketchfab.com/models/e89fdc6d0746402d87c8b6840c4808ee/embed" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="">OK</button>
+        <button class="btn btn-warning" ng-click="">Cancel</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="photosphereModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Une photosphere - {{path}}</h3>
+    </div>
+    <div class="modal-body">
+        <p class="text-center">
+        
+            <photosphere path="{{path}}"></photosphere>
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="">OK</button>
+        <button class="btn btn-warning" ng-click="">Cancel</button>
+    </div>
+</script>
