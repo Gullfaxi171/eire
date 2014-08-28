@@ -4,7 +4,7 @@
             "id":"photosphere_001",
             "name":"Howth Peninsula",
             "filename":"images/howth.jpg",
-            "description":"Photosphere of Dublin\"s harbour",
+            "description":"Photosphere of Dublin's harbour",
             "coords":{
                 "x":614,
                 "y":464
@@ -18,6 +18,16 @@
             "coords":{
                 "x":611,
                 "y":552
+            }
+        },
+        {
+            "id":"photosphere_003",
+            "name":"Dowth",
+            "filename":"images/dowth.jpg",
+            "description":"Photosphere of Dowth Tumulus",
+            "coords":{
+                "x":564,
+                "y":383
             }
         }
     ]

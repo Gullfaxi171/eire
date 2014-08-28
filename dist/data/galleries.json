@@ -5,9 +5,12 @@
             "name":"Howth Peninsula",
             "description":"This is description",
             "pictures":[
-                {"path":"galleries/howth/photo001.jpg"},
-                {"path":"galleries/howth/photo002.jpg"},
-                {"path":"galleries/howth/photo003.jpg"}
+                {"path":"https://71159e533176d37a2c2a0c60547bb03f42ead882.googledrive.com/host/0B9tUxMFyRHnYdGUxX3hFSk9jeEU/IMG_20140815_174050.jpg","description":"Howth Peninsula"},
+                {"path":"https://71159e533176d37a2c2a0c60547bb03f42ead882.googledrive.com/host/0B9tUxMFyRHnYdGUxX3hFSk9jeEU/IMG_20140815_180423.jpg","description":""},
+                {"path":"https://71159e533176d37a2c2a0c60547bb03f42ead882.googledrive.com/host/0B9tUxMFyRHnYdGUxX3hFSk9jeEU/IMG_20140815_182737.jpg","description":""},
+                {"path":"https://71159e533176d37a2c2a0c60547bb03f42ead882.googledrive.com/host/0B9tUxMFyRHnYdGUxX3hFSk9jeEU/IMG_20140815_191334.jpg","description":""},
+                {"path":"https://71159e533176d37a2c2a0c60547bb03f42ead882.googledrive.com/host/0B9tUxMFyRHnYdGUxX3hFSk9jeEU/IMG_20140815_192014.jpg","description":""},
+                {"path":"https://71159e533176d37a2c2a0c60547bb03f42ead882.googledrive.com/host/0B9tUxMFyRHnYdGUxX3hFSk9jeEU/IMG_20140815_192555.jpg","description":""}
             ],
             "coords":{
                 "x":628,
@@ -17,11 +20,16 @@
         {
             "id":"gallery_002",
             "name":"Dunluce Castle",
-            "description":"This is description",
+            "description":"Dunluce Castle (from Irish: Dún Libhse)[3] is a now-ruined medieval castle in Northern Ireland. It is located on the edge of a basalt outcropping in County Antrim (between Portballintrae and Portrush), and is accessible via a bridge connecting it to the mainland. The castle is surrounded by extremely steep drops on either side, which may have been an important factor to the early Christians and Vikings who were drawn to this place where an early Irish fort once stood.",
             "pictures":[
-                {"path":"https://lh4.googleusercontent.com/-n5B9zcXE4Sg/U_9AOo9ANjI/AAAAAAAAF5c/4a3xgA4rQWw/w1012-h577-no/IMG_20140822_130934.jpg"},
-                {"path":"https://lh5.googleusercontent.com/-POCQs0brSr4/U_9AOhEvflI/AAAAAAAAF5c/2SA4yiJbLT8/w1012-h577-no/IMG_20140822_130931.jpg"},
-                {"path":"https://lh6.googleusercontent.com/-pke8EvzgYFc/U_9AOoEwshI/AAAAAAAAF5c/nV9rvKX99dk/w1012-h577-no/IMG_20140822_130928.jpg"}
+                {"path":"https://265bf4f12262fc5625d466d8303df368beb8f1d4.googledrive.com/host/0B9tUxMFyRHnYT1hTS0l3TWpsUmc/IMG_20140822_130928.jpg","description":"Dunluce Castle"},
+                {"path":"https://265bf4f12262fc5625d466d8303df368beb8f1d4.googledrive.com/host/0B9tUxMFyRHnYT1hTS0l3TWpsUmc/IMG_20140822_130931.jpg","description":""},
+                {"path":"https://265bf4f12262fc5625d466d8303df368beb8f1d4.googledrive.com/host/0B9tUxMFyRHnYT1hTS0l3TWpsUmc/IMG_20140822_130934.jpg","description":""},
+                {"path":"https://265bf4f12262fc5625d466d8303df368beb8f1d4.googledrive.com/host/0B9tUxMFyRHnYT1hTS0l3TWpsUmc/IMG_20140822_130947.jpg","description":""},
+                {"path":"https://265bf4f12262fc5625d466d8303df368beb8f1d4.googledrive.com/host/0B9tUxMFyRHnYT1hTS0l3TWpsUmc/IMG_20140822_130950.jpg","description":""},
+                {"path":"https://265bf4f12262fc5625d466d8303df368beb8f1d4.googledrive.com/host/0B9tUxMFyRHnYT1hTS0l3TWpsUmc/IMG_20140822_131241.jpg","description":""},
+                {"path":"https://265bf4f12262fc5625d466d8303df368beb8f1d4.googledrive.com/host/0B9tUxMFyRHnYT1hTS0l3TWpsUmc/IMG_20140822_131250.jpg","description":""},
+                {"path":"https://265bf4f12262fc5625d466d8303df368beb8f1d4.googledrive.com/host/0B9tUxMFyRHnYT1hTS0l3TWpsUmc/IMG_20140822_131330.jpg","description":""}
                 
                 
             ],

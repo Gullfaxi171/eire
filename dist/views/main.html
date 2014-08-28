@@ -10,26 +10,22 @@
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" ng-click="">Back</button>
-    </div></script> <script type="text/ng-template" id="galleryModal.html"><div class="modal-header">
+    </div></script> <!------------------------------> <!--      Gallery Modal       --> <!------------------------------> <script type="text/ng-template" id="galleryModal.html"><div class="modal-header">
         <h3 class="modal-title">{{spot.name}}</h3>
     </div>
     <div class="modal-body">
-            
+    
             <carousel interval="interval">
             
       <slide ng-repeat="slide in slides">
         <img ng-src="{{slide.image}}" style="margin:auto;">
-        <!--<div class="carousel-caption">
+        <div class="carousel-caption">
           <p>{{slide.text}}</p>
-        </div>-->
+        </div>
       </slide>
             
             </carousel>
-        
 
-
-
-        
         <h3>Description</h3>
         <p>
             {{spot.description}}
@@ -37,7 +33,7 @@
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" ng-click="">Back</button>
-    </div></script> <script type="text/ng-template" id="photosphereModal.html"><div class="modal-header">
+    </div></script> <!------------------------------> <!--   Photosphere modal      --> <!------------------------------> <script type="text/ng-template" id="photosphereModal.html"><div class="modal-header">
         <h3 class="modal-title">{{spot.name}}</h3>
     </div>
     <div class="modal-body">
