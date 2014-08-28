@@ -1,0 +1,17 @@
+{
+    "galleries":[
+        {
+            "id":"gallery_001",
+            "name":"Howth Peninsula",
+            "description":"This is description",
+            "pictures":[
+                {"path":"my/path.jpg"},
+                {"path":"my/path2.jpg"}
+            ],
+            "coords":{
+                "x":200,
+                "y":550
+            }
+        }
+    ]
+}

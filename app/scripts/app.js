@@ -32,10 +32,6 @@ angular
         templateUrl: 'views/timeline.html',
         controller: ''
       })
-      .when('/photosphere', {
-        templateUrl: 'views/photosphere.html',
-        controller: ''
-      })
       .otherwise({
         redirectTo: '/'
       });

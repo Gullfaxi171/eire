@@ -1,5 +1,4 @@
 <button class="btn btn-success" ng-click="show3D()">Objet 3D</button>
-<button class="btn btn-warning" ng-click="showPhotosphere()">Photosphere</button>
 
 <div raphael id="canvas_eire"></div>
 
@@ -8,33 +7,55 @@
 <!--      3D item modal       -->
 <!------------------------------>
 
-<script type="text/ng-template" id="countyModal.html">
+<script type="text/ng-template" id="modelModal.html">
     <div class="modal-header">
-        <h3 class="modal-title">Un objet 3D</h3>
+        <h3 class="modal-title">{{spot.name}}</h3>
     </div>
     <div class="modal-body">
-        <p class="text-center">
-            <iframe width="640" height="480" src="https://sketchfab.com/models/e89fdc6d0746402d87c8b6840c4808ee/embed" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+        <p class="text-center" ng-bind-html="model"></p>
+        <h3>Description</h3>
+        <p>
+            {{spot.description}}
         </p>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="">OK</button>
-        <button class="btn btn-warning" ng-click="">Cancel</button>
+        <button class="btn btn-primary" ng-click="">Back</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="galleryModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{spot.name}}</h3>
+    </div>
+    <div class="modal-body">
+        <div style="height: 305px">
+            <gallery interval="interval">
+            </gallery>
+        </div>
+        <h3>Description</h3>
+        <p>
+            {{spot.description}}
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="">Back</button>
     </div>
 </script>
 
 <script type="text/ng-template" id="photosphereModal.html">
     <div class="modal-header">
-        <h3 class="modal-title">Une photosphere - {{path}}</h3>
+        <h3 class="modal-title">{{spot.name}}</h3>
     </div>
     <div class="modal-body">
         <p class="text-center">
-        
-            <photosphere path="{{path}}"></photosphere>
+            <photosphere path="{{spot.filename}}"></photosphere>
+        </p>
+        <h3>Description</h3>
+        <p>
+            {{spot.description}}
         </p>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="">OK</button>
-        <button class="btn btn-warning" ng-click="">Cancel</button>
+        <button class="btn btn-primary" ng-click="">Back</button>
     </div>
 </script>

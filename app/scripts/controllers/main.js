@@ -6,35 +6,22 @@
  * # MainCtrl
  * Controller of the workspaceApp
  */
-angular.module('workspaceApp').controller('MainCtrl', function($scope, $modal, $log) {
-    /*
-    // Open a show3D Modal
-    $scope.show3D = function() {
-        $modal.open({
-            templateUrl: 'countyModal.html',
-            size: 'lg'
-        });
-    };
-    
-    // Open a photosphere modal
-    $scope.showPhotosphere = function() {
-        $modal.open({
-            templateUrl: 'photosphereModal.html',
-            size: 'lg'
-        });
-    };
-    
-    // Open modal when clicking on spot
-    var spot = angular.element('#photosphere_001');
-    
-    $log.log(spot);
-    
-    spot.on("click", function (event) {
-        $scope.showPhotosphere();
-    });*/
-    
-});
+angular.module('workspaceApp').controller('MainCtrl', ['$scope', function($scope) {
 
-angular.module('workspaceApp').controller('PhotosphereModalCtrl', function($scope, link) {
-    $scope.path = link;
-});
+    
+}]);
+
+angular.module('workspaceApp').controller('PhotosphereModalCtrl', ['$scope', 'spot', function($scope, spot) {
+    $scope.spot = spot;
+}]);
+
+angular.module('workspaceApp').controller('ModelModalCtrl', ['$scope', 'spot', '$sce',  function($scope, spot, $sce) {
+    $scope.spot = spot;
+    $scope.model = $sce.trustAsHtml('<iframe width="640" height="480" src="' + $scope.spot.path + '" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>');
+
+}]);
+
+angular.module('workspaceApp').controller('GalleryModalCtrl', ['$scope', 'spot', function($scope, spot) {
+    $scope.spot = spot;
+    $scope.interval = 5000;
+}]);

@@ -5,8 +5,8 @@
  * @description
  * # raphael
  */
-angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Photospheres', '$q', '$log', '$modal',
-    function($compile, County, Photospheres, $q, $log, $modal) {
+angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Photospheres', 'Models', 'Galleries', '$q', '$log', '$modal',
+    function($compile, County, Photospheres, Models, Galleries, $q, $log, $modal) {
         return {
             link: function(scope, element) {
                 
@@ -15,14 +15,14 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                 var eire = {};
                 
                 
-                var showPhotosphere = function(link) {
+                var showPhotosphere = function(spot) {
                     var modalInstance = $modal.open({
                         templateUrl: 'photosphereModal.html',
                         size: 'lg',
                         controller:'PhotosphereModalCtrl',
                         resolve: {
-                            link: function() {
-                                return link;
+                            spot: function() {
+                                return spot;
                             }
                         }
                     });
@@ -32,8 +32,38 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                      });*/
                 };
                 
-                var addSpot = function(spot, color) {
-                   
+                var showModel = function(spot) {
+                    var modalInstance = $modal.open({
+                        templateUrl: 'modelModal.html',
+                        size: 'lg',
+                        controller:'ModelModalCtrl',
+                        resolve: {
+                            spot: function() {
+                                return spot;
+                            }
+                        }
+                    });
+                };
+                
+                var showGallery = function(spot) {
+                    var modalInstance = $modal.open({
+                        templateUrl: 'galleryModal.html',
+                        size: 'lg',
+                        controller:'GalleryModalCtrl',
+                        resolve: {
+                            spot: function() {
+                                return spot;
+                            }
+                        }
+                    });
+                };
+                
+                var addSpot = function(spot, color, data) {
+                   		
+                    // get spot type (0 for photosphere, 1 for model, 2 for gallery)
+                    	var type = data.type;
+                    
+                    // define original attributes of the spot
                         var spotAttr={
                             "fill":color,
                             "stroke":"red",
@@ -42,6 +72,7 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                             "r":4,
                             "title":spot.name};
                         
+                    // attributes when hovered
                         var spotAttrHovered={
                             "fill":color,
                             "stroke":"red",
@@ -50,10 +81,30 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                             "r":10,
                             "title":spot.name};
 
+                    if(type === 0) { // photospheres
+                        
                         eire[spot.id] = paper.circle(spot.coords.x, spot.coords.y, 4).attr(spotAttr).attr({href:""}).hover(
                             function () {eire[spot.id].animate(spotAttrHovered, 100, 'elastic');},
                             function () {eire[spot.id].animate(spotAttr, 300, 'elastic'); }
-                        ).click(function(){showPhotosphere(spot.filename)});
+                        ).click(function(){showPhotosphere(spot)});
+                        
+                    } else if (type === 1) { // models
+                        
+                        eire[spot.id] = paper.circle(spot.coords.x, spot.coords.y, 4).attr(spotAttr).attr({href:""}).hover(
+                            function () {eire[spot.id].animate(spotAttrHovered, 100, 'elastic');},
+                            function () {eire[spot.id].animate(spotAttr, 300, 'elastic'); }
+                        ).click(function(){showModel(spot)});
+                        
+                    } else if (type === 2) { // galleries
+                        
+                        eire[spot.id] = paper.circle(spot.coords.x, spot.coords.y, 4).attr(spotAttr).attr({href:""}).hover(
+                            function () {eire[spot.id].animate(spotAttrHovered, 100, 'elastic');},
+                            function () {eire[spot.id].animate(spotAttr, 300, 'elastic'); }
+                        ).click(function(){showGallery(spot)});
+                        
+                    }
+                    
+
                     
                         
                     
@@ -61,9 +112,11 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
 
                 
                 // Catching Json Data
-                $q.all([County.get(), Photospheres.get()]).then(function(d) {
+                $q.all([County.get(), Photospheres.get(), Models.get(), Galleries.get()]).then(function(d) {
                     var counties = d[0].data.counties;
                     var photospheres = d[1].data.photospheres;
+                    var models = d[2].data.models;
+                    var galleries = d[3].data.galleries;
                     
                     ///////////////////////////////////
                     //       Building the map        //
@@ -87,7 +140,23 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                     //   Placing photospheres spots  //
                     ///////////////////////////////////
                     angular.forEach(photospheres, function(spot) {
-                        addSpot(spot, "#003bff");
+                        addSpot(spot, "#003bff", {"type":0});
+                    });
+                    
+                    
+                    ///////////////////////////////////
+                    //     Placing 3D Models spots   //
+                    ///////////////////////////////////
+                    angular.forEach(models, function(spot) {
+                        addSpot(spot, "#e84702", {"type":1});
+                    });
+                    
+                    
+                    ///////////////////////////////////
+                    //    Placing galleries spots    //
+                    ///////////////////////////////////
+                    angular.forEach(galleries, function(spot) {
+                        addSpot(spot, "#aad110", {"type":2});
                     });
                     
                 });

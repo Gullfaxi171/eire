@@ -1,0 +1,14 @@
+{
+    "models":[
+        {
+         "id":"model_001",
+         "path":"https://sketchfab.com/models/e89fdc6d0746402d87c8b6840c4808ee/embed",
+         "name":"Dolmen",
+         "description":"Voici un Dolmen",
+            "coords":{
+                "x":550,
+                "y":550
+            }
+        }
+    ]
+}
