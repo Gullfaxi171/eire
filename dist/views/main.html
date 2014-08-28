@@ -1,23 +1,54 @@
-<div raphael id="canvas_france"></div> <!--<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.5cff96e1.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<div raphael id="canvas_eire"></div> <!------------------------------> <!--      3D item modal       --> <!------------------------------> <script type="text/ng-template" id="modelModal.html"><div class="modal-header">
+        <h3 class="modal-title">{{spot.name}}</h3>
+    </div>
+    <div class="modal-body">
+        <p class="text-center" ng-bind-html="model"></p>
+        <h3>Description</h3>
+        <p>
+            {{spot.description}}
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="">Back</button>
+    </div></script> <script type="text/ng-template" id="galleryModal.html"><div class="modal-header">
+        <h3 class="modal-title">{{spot.name}}</h3>
+    </div>
+    <div class="modal-body">
+            
+            <carousel interval="interval">
+            
+      <slide ng-repeat="slide in slides">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <!--<div class="carousel-caption">
+          <p>{{slide.text}}</p>
+        </div>-->
+      </slide>
+            
+            </carousel>
+        
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>-->
+        
+        <h3>Description</h3>
+        <p>
+            {{spot.description}}
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="">Back</button>
+    </div></script> <script type="text/ng-template" id="photosphereModal.html"><div class="modal-header">
+        <h3 class="modal-title">{{spot.name}}</h3>
+    </div>
+    <div class="modal-body">
+        <p class="text-center">
+            <photosphere path="{{spot.filename}}"></photosphere>
+        </p>
+        <h3>Description</h3>
+        <p>
+            {{spot.description}}
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="">Back</button>
+    </div></script>

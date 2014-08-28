@@ -22,6 +22,17 @@ angular.module('workspaceApp').controller('ModelModalCtrl', ['$scope', 'spot', '
 }]);
 
 angular.module('workspaceApp').controller('GalleryModalCtrl', ['$scope', 'spot', function($scope, spot) {
-    $scope.spot = spot;
+    //$scope.spot = spot;
     $scope.interval = 5000;
+    var pictures = spot.pictures;
+    
+    $scope.slides = [];
+    
+    angular.forEach(pictures, function(picture) {
+        $scope.slides.push({
+            image:picture.path,
+            text:picture.description
+        });
+    });
 }]);
+

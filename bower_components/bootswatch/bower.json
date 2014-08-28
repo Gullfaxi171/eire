@@ -4,6 +4,7 @@
   "version": "3.2.0",
   "author": "Thomas Park",
   "homepage": "http://bootswatch.com",
+  "main":"amelia/bootstrap.min.css",
   "repository": {
     "type": "git",
     "url": "git://github.com/thomaspark/bootswatch.git"

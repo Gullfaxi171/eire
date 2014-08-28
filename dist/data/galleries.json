@@ -1,0 +1,34 @@
+{
+    "galleries":[
+        {
+            "id":"gallery_001",
+            "name":"Howth Peninsula",
+            "description":"This is description",
+            "pictures":[
+                {"path":"galleries/howth/photo001.jpg"},
+                {"path":"galleries/howth/photo002.jpg"},
+                {"path":"galleries/howth/photo003.jpg"}
+            ],
+            "coords":{
+                "x":628,
+                "y":467
+            }
+        },
+        {
+            "id":"gallery_002",
+            "name":"Dunluce Castle",
+            "description":"This is description",
+            "pictures":[
+                {"path":"https://lh4.googleusercontent.com/-n5B9zcXE4Sg/U_9AOo9ANjI/AAAAAAAAF5c/4a3xgA4rQWw/w1012-h577-no/IMG_20140822_130934.jpg"},
+                {"path":"https://lh5.googleusercontent.com/-POCQs0brSr4/U_9AOhEvflI/AAAAAAAAF5c/2SA4yiJbLT8/w1012-h577-no/IMG_20140822_130931.jpg"},
+                {"path":"https://lh6.googleusercontent.com/-pke8EvzgYFc/U_9AOoEwshI/AAAAAAAAF5c/nV9rvKX99dk/w1012-h577-no/IMG_20140822_130928.jpg"}
+                
+                
+            ],
+            "coords":{
+                "x":539,
+                "y":44
+            }
+        }
+    ]
+}

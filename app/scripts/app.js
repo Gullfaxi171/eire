@@ -10,7 +10,6 @@
  */
 angular
   .module('workspaceApp', [
-    'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
