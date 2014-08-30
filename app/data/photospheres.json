@@ -8,6 +8,10 @@
             "coords":{
                 "x":614,
                 "y":464
+            },
+            "coordsGps":{
+                 "E":-6.156017,
+                "N":53.391115
             }
         },
         {
@@ -18,6 +22,10 @@
             "coords":{
                 "x":611,
                 "y":552
+            },
+            "coordsGps":{
+                "E":-6.240086,
+                "N":53.130655
             }
         },
         {
@@ -28,6 +36,24 @@
             "coords":{
                 "x":564,
                 "y":383
+            },
+            "coordsGps":{
+                "E":10,
+                "N":10
+            }
+        },
+        {
+            "id":"photosphere_004",
+            "name":"Castle",
+            "filename":"images/castle.jpg",
+            "description":"Photosphere of Dublin's castle",
+            "coords":{
+                "x":595,
+                "y":482
+            },
+            "coordsGps":{
+                "E":10,
+                "N":10
             }
         }
     ]
