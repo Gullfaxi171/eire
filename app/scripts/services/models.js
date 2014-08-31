@@ -11,8 +11,8 @@ angular.module('workspaceApp')
   .factory('Models', ['$http', function($http) {
 
       return{
-          get: function() {
-              return $http.get('data/3dmodels.json');
+          get: function(map) {
+              return $http.get('data/' + map + '/3dmodels.json');
           }
       };
       	

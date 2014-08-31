@@ -8,10 +8,15 @@
 angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Photospheres', 'Models', 'Galleries', '$q', '$log', '$modal',
     function($compile, County, Photospheres, Models, Galleries, $q, $log, $modal) {
         return {
-            link: function(scope, element) {
+            scope: {
+            	map:"="
+        	},
+            link: function(scope, element, attrs) {
+                
+                var map = attrs.map;
                 
                 // Catching Json Data
-                $q.all([County.get(), Photospheres.get(), Models.get(), Galleries.get()]).then(function(d) {
+                $q.all([County.get(map), Photospheres.get(map), Models.get(map), Galleries.get(map)]).then(function(d) {
                     
                     var mapData = d[0].data.map;
                     var counties = d[0].data.counties;
@@ -27,6 +32,7 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                     //       Functions to populate the map        //
                     ////////////////////////////////////////////////
                     
+                    // function to change gps coords into pixel coords
                     var coords = function(coordsGps) {
                         var x, y;
                         var E = coordsGps.E;
@@ -44,8 +50,9 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                         return {'x':x, 'y':y};
                     };
                 
+                    // function to load a modal with a photosphere inside
                     var showPhotosphere = function(spot) {
-                        /*var modalInstance = */$modal.open({
+                        $modal.open({
                             templateUrl: 'photosphereModal.html',
                             size: 'lg',
                             controller:'PhotosphereModalCtrl',
@@ -56,11 +63,9 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                             }
                         });
 
-                         /*modalInstance.opened.then(function(){
-                             modalInstance.scope.link = link;
-                         });*/
                     };
                 
+                    // function to load a modal with a 3d model inside
                     var showModel = function(spot) {
                         /*var modalInstance = */$modal.open({
                             templateUrl: 'modelModal.html',
@@ -73,7 +78,8 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                             }
                         });
                     };
-                
+
+                    // function to load a modal with a pictures gallery inside
                     var showGallery = function(spot) {
                         /*var modalInstance = */$modal.open({
                             templateUrl: 'galleryModal.html',
@@ -87,15 +93,19 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                         });
                     };
                 
+                    // function to add a new spot, from spot data, color, and type of the spot
                     var addSpot = function(spot, color, data) {
 
                         // get spot type (0 for photosphere, 1 for model, 2 for gallery)
                         var type = data.type;
+                        
+                        // picSize is the height of spot icons on the map
                         var picSize = 16;
 
 
                         var coordinates = coords(spot.coordsGps);
 
+                            // define original attributes of the spot
                             var imgAttr = {
                                 'width':picSize,
                                 'height':picSize,
@@ -104,6 +114,7 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                                 'title':spot.name
                             };
 
+                        	// attributes when hovered
                             var imgHoveredAttr = {
                                 'width':picSize*2,
                                 'height':picSize*2,
@@ -112,50 +123,33 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                                 'title':spot.name
                             };
 
-                        // define original attributes of the spot
-                            var spotAttr={
-                                'fill':color,
-                                'stroke':'red',
-                                'stroke-width':1,
-                                'stroke-linejoin':'round',
-                                'r':4,
-                                'title':spot.name};
-
-                        // attributes when hovered
-                            var spotAttrHovered={
-                                'fill':color,
-                                'stroke':'red',
-                                'stroke-width':3,
-                                'stroke-linejoin':'round',
-                                'r':10,
-                                'title':spot.name};
-
-
                         if(type === 0) { // photospheres
 
-                            eire[spot.id] = paper.circle(coordinates.x, coordinates.y, 4).attr(spotAttr).attr({href:''}).hover(
-                                function () {eire[spot.id].animate(spotAttrHovered, 100, 'elastic');},
-                                function () {eire[spot.id].animate(spotAttr, 300, 'elastic');}
-                            ).click(function(){showPhotosphere(spot);});
+                            eire[spot.id] = paper
+                                .image('images/switch_camera-32.png', coordinates.x - picSize/2, coordinates.y - picSize/2, picSize, picSize)
+                                .attr({'cursor':'pointer'})
+                                .hover(
+                                    function(){eire[spot.id].animate(imgHoveredAttr, 100, 'elastic');},
+                                    function(){eire[spot.id].animate(imgAttr, 300, 'elastic');}
+                                    )
+                            	.click(function(){showPhotosphere(spot);});
 
                         } else if (type === 1) { // models
 
-                            eire[spot.id] = paper.circle(coordinates.x, coordinates.y, 4).attr(spotAttr).attr({href:''}).hover(
-                                function () {eire[spot.id].animate(spotAttrHovered, 100, 'elastic');},
-                                function () {eire[spot.id].animate(spotAttr, 300, 'elastic'); }
-                            ).click(function(){showModel(spot);});
+                            eire[spot.id] = paper
+                                .image('images/geometry-32.png', coordinates.x - picSize/2, coordinates.y - picSize/2, picSize, picSize)
+                                .attr({'cursor':'pointer'})
+                                .hover(
+                                    function(){eire[spot.id].animate(imgHoveredAttr, 100, 'elastic');},
+                                    function(){eire[spot.id].animate(imgAttr, 300, 'elastic');}
+                                    )
+                            	.click(function(){showModel(spot);});
 
                         } else if (type === 2) { // galleries
 
-                            /*eire[spot.id] = paper.circle(spot.coords.x, spot.coords.y, 4).attr(spotAttr).attr({href:''}).hover(
-                                function () {eire[spot.id].animate(spotAttrHovered, 100, 'elastic');},
-                                function () {eire[spot.id].animate(spotAttr, 300, 'elastic'); }
-                            ).click(function(){showGallery(spot)});*/
-
-
                             eire[spot.id] = paper
-                                .image('http://cdn.icons8.com/storage/windows8/PNG/64/Photo_Video/compact_camera-64.png', coordinates.x - picSize/2, coordinates.y - picSize/2, picSize, picSize)
-                                .attr({'cursor':'pointer','color':'#ff0000'})
+                                .image('images/compact_camera-32.png', coordinates.x - picSize/2, coordinates.y - picSize/2, picSize, picSize)
+                                .attr({'cursor':'pointer'})
                                 .hover(
                                     function(){eire[spot.id].animate(imgHoveredAttr, 100, 'elastic');},
                                     function(){eire[spot.id].animate(imgAttr, 300, 'elastic');}
@@ -170,18 +164,23 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                     //       Building the map        //
                     ///////////////////////////////////
 
+                    if(mapData.type==='svg') {
                     
-                    // for each county
-                    angular.forEach(counties, function(county) {
-                        
-                        // construct border & colors
-                        eire[county.name] = paper.path(county.path).attr(county.attr).transform(county.transform).hover(function() {
-                            eire[county.name].attr({'fill':'#a8a239'});
-                        }, function() {
-                            eire[county.name].attr({'fill':county.attr.fill});
+                        // for each county
+                        angular.forEach(counties, function(county) {
+
+                            // construct border & colors
+                            eire[county.name] = paper.path(county.path).attr(county.attr).transform(county.transform).hover(function() {
+                                eire[county.name].attr({'fill':'#a8a239'});
+                            }, function() {
+                                eire[county.name].attr({'fill':county.attr.fill});
+                            });
+
                         });
+                    
+                    } else if(mapData.type==='png') {
                         
-                    });
+                    }
                     
                     
                     ///////////////////////////////////

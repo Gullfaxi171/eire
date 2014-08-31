@@ -11,8 +11,8 @@ angular.module('workspaceApp')
   .factory('Galleries', ['$http', function($http) {
 
       return{
-          get: function() {
-              return $http.get('data/galleries.json');
+          get: function(map) {
+              return $http.get('data/' + map + '/galleries.json');
           }
       };
       	

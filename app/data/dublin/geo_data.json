@@ -1,0 +1,19 @@
+{
+    "map":{
+        "name":"Dublin",
+        "width":710,
+        "height":910,
+        "origin":{
+            "x":285,
+            "y":275,
+            "lat":54.215917,
+            "long":-8.560647
+        },
+        "scale":1,
+        "type":"svg",
+        "background":""
+    },
+    "counties": [
+        
+        ]
+}

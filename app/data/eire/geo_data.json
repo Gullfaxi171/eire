@@ -9,7 +9,9 @@
             "lat":54.215917,
             "long":-8.560647
         },
-        "scale":2.087912
+        "scale":2.087912,
+        "type":"svg",
+        "background":""
     },
     "counties": [{
         "name": "Kerry",

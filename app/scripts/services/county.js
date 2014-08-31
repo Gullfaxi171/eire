@@ -11,8 +11,8 @@ angular.module('workspaceApp')
   .factory('County', ['$http', function($http) {
 
       return{
-          get: function() {
-              return $http.get('data/geo_data.json');
+          get: function(map) {
+              return $http.get('data/' + map + '/geo_data.json');
           }
       };
       	

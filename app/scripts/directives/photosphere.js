@@ -10,7 +10,7 @@ angular.module('workspaceApp')
   .directive('photosphere', ['$log', '$document', '$window', function ($log, $document, $window) {
     return {
         template: '<div id="sphere"></div>',
-      restrict: 'E',
+      	restrict: 'E',
         scope: {
             path:"@"
         },
@@ -25,8 +25,8 @@ angular.module('workspaceApp')
 		var webglEl =  element.find('div').attr('id' , 'sphere');
         
           
-		var width  = 640,//$window.innerWidth,
-			height = 480;//$window.innerHeight;
+		var width  = 640,
+			height = 480;
 		var windowWidth, windowHeight;
 		var rotateSpeed = -0.5;
 

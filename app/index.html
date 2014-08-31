@@ -25,17 +25,18 @@
     <div class="container-fluid">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Ireland</a></li>
-          <li><a ng-href="#/dublin">Dublin</a></li>
-          <li><a ng-href="#/timeline">Timeline</a></li>
-          <li><a ng-href="#/about">About</a></li>
+          <li ng-class="isActive('main')"><a ng-href="#" ng-click="setTab('main')">Ireland</a></li>
+          <li ng-class="isActive('dublin')"><a ng-href="#/dublin" ng-click="setTab('dublin')">Dublin</a></li>
+          <li ng-class="isActive('timeline')"><a ng-href="#/timeline" ng-click="setTab('timeline')">Timeline</a></li>
+          <li ng-class="isActive('about')"><a ng-href="#/about" ng-click="setTab('about')">About</a></li>
         </ul>
         <h3 class="text-muted">Eire Virtual Tour</h3>
       </div>
-
+        
       <div ng-view=""></div>
 
       <div class="footer">
+          
         <p>Raphael Gassie - Florent Gros - Damien Martin - Sylvain Truche</p>
           <a href="http://icons8.com">Icon pack by Icons8</a>
       </div>
@@ -65,6 +66,7 @@
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/threejs/build/three.min.js"></script>
+    <script src="bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -81,6 +83,7 @@
         <script src="scripts/three/CustomOrbitControls.js"></script>
         <script src="scripts/services/models.js"></script>
         <script src="scripts/services/galleries.js"></script>
+        <script src="scripts/controllers/dublin.js"></script>
         <!-- endbuild -->
 </body>
 </html>

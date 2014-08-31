@@ -15,7 +15,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'FBAngular'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -30,6 +31,10 @@ angular
       .when('/timeline', {
         templateUrl: 'views/timeline.html',
         controller: ''
+      })
+      .when('/dublin', {
+        templateUrl: 'views/dublin.html',
+        controller: 'DublinCtrl'
       })
       .otherwise({
         redirectTo: '/'
