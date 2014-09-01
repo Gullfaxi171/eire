@@ -180,6 +180,8 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                     
                     } else if(mapData.type==='png') {
                         
+                        eire['background'] = paper.image(mapData.background, 0, 0, mapData.width, mapData.height);
+                        
                     }
                     
                     

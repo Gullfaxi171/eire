@@ -247,6 +247,55 @@
                 "E":-6.475159,
                 "N":53.694718
             }
-        }
+        },
+         {
+            "id":"gallery_010",
+            "name":"Le Connemara",
+            "description":"",
+            "pictures":[
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3504%20Connemara%20Spiddal.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3505%20Connemara%20Spiddal.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3516%20Connemara.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3517%20Connemara.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3518%20Connemara.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3519%20Connemara.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3520%20Connemara.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3524%20Connemara.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3525%20Connemara.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3529%20Connemara.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3530%20Connemara.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3531%20Connemara.JPG","description":""},
+                {"path":"https://da3f74be332438df5e6c3e7987404f437030962b.googledrive.com/host/0B0-rfK5wCWvDdGZOLTVvRG93a2c/3532%20Connemara.JPG","description":""}
+            ],
+            "coordsGps":{
+                "E":-9.889170,
+                "N":53.537849
+            }
+		},
+
+         {
+            "id":"gallery_011",
+            "name":"Cliffs of Moher",
+            "description":"",
+            "pictures":[
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3590%20falaises%20de%20Cliff%20of%20Mohair.JPG","description":""},
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3601.JPG","description":""},
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3604%20falaises%20de%20Cliff%20of%20Mohair.JPG","description":""},
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3607%20falaises%20de%20Cliff%20of%20Mohair.JPG","description":""},
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3608%20falaises%20de%20Cliff%20of%20Mohair.JPG","description":""},
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3609%20falaises%20de%20Cliff%20of%20Mohair.JPG","description":""},
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3610%20falaises%20de%20Cliff%20of%20Mohair.JPG","description":""},
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3624%20falaises%20de%20Cliff%20of%20Mohair.JPG","description":""},
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3625%20falaises%20de%20Cliff%20of%20Mohair.JPG","description":""},
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3627%20falaises%20de%20Cliff%20of%20Mohair.JPG","description":""},
+                {"path":"https://371227e58fd9d1e0a2df164020a1f6d15347e4a9.googledrive.com/host/0B0-rfK5wCWvDdVlZVVlNNm9sS1E/3628%20falaises%20de%20Cliff%20of%20Mohair.JPG","description":""}
+            ],
+            "coordsGps":{
+                "E":-9.426510,
+                "N":52.971958
+            }
+		}
+
+
     ]
 }
