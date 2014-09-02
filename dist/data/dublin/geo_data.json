@@ -11,7 +11,7 @@
         },
         "scale":180.96,
         "type":"png",
-        "background":"data/dublin/dublin.png"
+        "background":"images/dublin.png"
     },
     "counties": [
         
