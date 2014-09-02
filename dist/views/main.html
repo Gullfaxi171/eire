@@ -1,50 +1,6 @@
-<div raphael id="canvas_eire"></div> <!------------------------------> <!--      3D item modal       --> <!------------------------------> <script type="text/ng-template" id="modelModal.html"><div class="modal-header">
-        <h3 class="modal-title">{{spot.name}}</h3>
-    </div>
-    <div class="modal-body">
-        <p class="text-center" ng-bind-html="model"></p>
-        <h3>Description</h3>
-        <p>
-            {{spot.description}}
-        </p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="">Back</button>
-    </div></script> <!------------------------------> <!--      Gallery Modal       --> <!------------------------------> <script type="text/ng-template" id="galleryModal.html"><div class="modal-header">
-        <h3 class="modal-title">{{spot.name}}</h3>
-    </div>
-    <div class="modal-body">
-    
-            <carousel interval="interval">
-            
-      <slide ng-repeat="slide in slides">
-        <img ng-src="{{slide.image}}" style="margin:auto;">
-        <div class="carousel-caption">
-          <p>{{slide.text}}</p>
+<br> <div class="row"> <div class="hidden-lg col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"> <div class="panel panel-info"> <div class="panel-heading">Legend</div> <div class="panel-body"> <img src="images/compact_camera-32.png">&nbsp;&nbsp;Pictures gallery&nbsp;&nbsp;&nbsp; <img src="images/switch_camera-32.png"> &nbsp;&nbsp;Photosphere&nbsp;&nbsp;&nbsp; <img src="images/invisible-32.png">&nbsp;&nbsp;Fisheye&nbsp;&nbsp;&nbsp; <img src="images/geometry-32.png">&nbsp;&nbsp;3D model&nbsp;&nbsp;&nbsp; <img src="images/map_marker-32.png">&nbsp;&nbsp;Link to another map </div> </div> </div> </div> <div class="row"> <div class="col-lg-2 hidden-md hidden-sm hidden-xs"> <div class="panel panel-info"> <div class="panel-heading">Legend</div> <div class="panel-body"> <img src="images/compact_camera-32.png">&nbsp;&nbsp;Pictures gallery<br><br> <img src="images/switch_camera-32.png"> &nbsp;&nbsp;Photosphere<br><br> <img src="images/invisible-32.png">&nbsp;&nbsp;Fisheye<br><br> <img src="images/geometry-32.png">&nbsp;&nbsp;3D model<br><br> <img src="images/map_marker-32.png">&nbsp;&nbsp;Link to another map<br> </div> </div> </div> <div class="col-lg-8"> <div raphael id="canvas_eire" map="eire"></div> </div> <!--
+    <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
+        <div class="well">
+            County description<br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
-      </slide>
-            
-            </carousel>
-
-        <h3>Description</h3>
-        <p>
-            {{spot.description}}
-        </p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="">Back</button>
-    </div></script> <!------------------------------> <!--   Photosphere modal      --> <!------------------------------> <script type="text/ng-template" id="photosphereModal.html"><div class="modal-header">
-        <h3 class="modal-title">{{spot.name}}</h3>
-    </div>
-    <div class="modal-body">
-        <p class="text-center">
-            <photosphere path="{{spot.filename}}"></photosphere>
-        </p>
-        <h3>Description</h3>
-        <p>
-            {{spot.description}}
-        </p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="">Back</button>
-    </div></script>
+    </div>--> </div>

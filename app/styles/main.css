@@ -8,6 +8,11 @@ body {
     text-align:center;
 }
 
+.fisheye{
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,

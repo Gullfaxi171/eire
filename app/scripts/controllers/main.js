@@ -31,6 +31,13 @@ angular.module('workspaceApp').controller('PhotosphereModalCtrl', ['$scope', 'sp
     };
 }]);
 
+angular.module('workspaceApp').controller('FisheyeModalCtrl', ['$scope', 'spot', '$modalInstance', function($scope, spot, $modalInstance) {
+    $scope.spot = spot;
+    $scope.closeModal = function() {
+        $modalInstance.close();
+    };
+}]);
+
 angular.module('workspaceApp').controller('ModelModalCtrl', ['$scope', 'spot', '$sce', '$modalInstance', function($scope, spot, $sce, $modalInstance) {
     $scope.spot = spot;
     $scope.model = $sce.trustAsHtml('<iframe width="640" height="480" src="' + $scope.spot.path + '" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>');

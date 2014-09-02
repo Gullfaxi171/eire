@@ -5,8 +5,8 @@
  * @description
  * # raphael
  */
-angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Photospheres', 'Models', 'Galleries', '$q', '$log', '$modal',
-    function($compile, County, Photospheres, Models, Galleries, $q, $log, $modal) {
+angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Photospheres', 'Models', 'Galleries', 'Fisheyes', 'Maps', '$q', '$log', '$modal', '$location',
+    function($compile, County, Photospheres, Models, Galleries, Fisheyes, Maps, $q, $log, $modal, $location) {
         return {
             scope: {
             	map:"="
@@ -16,13 +16,15 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                 var map = attrs.map;
                 
                 // Catching Json Data
-                $q.all([County.get(map), Photospheres.get(map), Models.get(map), Galleries.get(map)]).then(function(d) {
+                $q.all([County.get(map), Photospheres.get(map), Models.get(map), Galleries.get(map), Fisheyes.get(map), Maps.get(map)]).then(function(d) {
                     
                     var mapData = d[0].data.map;
                     var counties = d[0].data.counties;
                     var photospheres = d[1].data.photospheres;
                     var models = d[2].data.models;
                     var galleries = d[3].data.galleries;
+                    var fisheyes = d[4].data.fisheyes;
+                    var maps = d[5].data.maps;
                     
                     // initiate raphael document
                     var paper = new Raphael(element[0], mapData.width, mapData.height);
@@ -53,9 +55,24 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                     // function to load a modal with a photosphere inside
                     var showPhotosphere = function(spot) {
                         $modal.open({
-                            templateUrl: 'photosphereModal.html',
+                            templateUrl: 'views/photospheremodal.html',
                             size: 'lg',
                             controller:'PhotosphereModalCtrl',
+                            resolve: {
+                                spot: function() {
+                                    return spot;
+                                }
+                            }
+                        });
+
+                    };
+                    
+                    // function to load a modal with a fisheye inside (actually just displays a picture)
+                    var showFisheye = function(spot) {
+                        $modal.open({
+                            templateUrl: 'views/fisheyemodal.html',
+                            size: 'lg',
+                            controller:'FisheyeModalCtrl',
                             resolve: {
                                 spot: function() {
                                     return spot;
@@ -68,7 +85,7 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                     // function to load a modal with a 3d model inside
                     var showModel = function(spot) {
                         /*var modalInstance = */$modal.open({
-                            templateUrl: 'modelModal.html',
+                            templateUrl: 'views/modelmodal.html',
                             size: 'lg',
                             controller:'ModelModalCtrl',
                             resolve: {
@@ -82,7 +99,7 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                     // function to load a modal with a pictures gallery inside
                     var showGallery = function(spot) {
                         /*var modalInstance = */$modal.open({
-                            templateUrl: 'galleryModal.html',
+                            templateUrl: 'views/gallerymodal.html',
                             size: 'lg',
                             controller:'GalleryModalCtrl',
                             resolve: {
@@ -92,9 +109,15 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                             }
                         });
                     };
+                    
+                    // load another map from a spot
+                    var loadMap = function(spot) {
+                        $location.path(spot.route);
+                        scope.$apply();
+                    };
                 
                     // function to add a new spot, from spot data, color, and type of the spot
-                    var addSpot = function(spot, color, data) {
+                    var addSpot = function(spot, data) {
 
                         // get spot type (0 for photosphere, 1 for model, 2 for gallery)
                         var type = data.type;
@@ -155,6 +178,26 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                                     function(){eire[spot.id].animate(imgAttr, 300, 'elastic');}
                                     )
                                 .click(function(){showGallery(spot);});
+                        } else if (type === 3) { // fisheye
+                            
+                            eire[spot.id] = paper
+                                .image('images/invisible-32.png', coordinates.x - picSize/2, coordinates.y - picSize/2, picSize, picSize)
+                                .attr({'cursor':'pointer'})
+                                .hover(
+                                    function(){eire[spot.id].animate(imgHoveredAttr, 100, 'elastic');},
+                                    function(){eire[spot.id].animate(imgAttr, 300, 'elastic');}
+                                    )
+                                .click(function(){showFisheye(spot);});
+                        } else if (type === 4) { // other map
+                            
+                            eire[spot.id] = paper
+                                .image('images/map_marker-32.png', coordinates.x - picSize/2, coordinates.y - picSize/2, picSize, picSize)
+                                .attr({'cursor':'pointer'})
+                                .hover(
+                                    function(){eire[spot.id].animate(imgHoveredAttr, 100, 'elastic');},
+                                    function(){eire[spot.id].animate(imgAttr, 300, 'elastic');}
+                                    )
+                                .click(function(){loadMap(spot);});
                         }
 
                     };
@@ -189,7 +232,7 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                     //   Placing photospheres spots  //
                     ///////////////////////////////////
                     angular.forEach(photospheres, function(spot) {
-                        addSpot(spot, '#003bff', {'type':0});
+                        addSpot(spot, {'type':0});
                     });
                     
                     
@@ -197,7 +240,7 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                     //     Placing 3D Models spots   //
                     ///////////////////////////////////
                     angular.forEach(models, function(spot) {
-                        addSpot(spot, '#e84702', {'type':1});
+                        addSpot(spot, {'type':1});
                     });
                     
                     
@@ -205,7 +248,21 @@ angular.module('workspaceApp').directive('raphael', ['$compile', 'County', 'Phot
                     //    Placing galleries spots    //
                     ///////////////////////////////////
                     angular.forEach(galleries, function(spot) {
-                        addSpot(spot, '#aad110', {'type':2});
+                        addSpot(spot, {'type':2});
+                    });
+                    
+                    ///////////////////////////////////
+                    //    Placing fisheyes spots     //
+                    ///////////////////////////////////
+                    angular.forEach(fisheyes, function(spot) {
+                        addSpot(spot, {'type':3});
+                    });
+                    
+                    ///////////////////////////////////
+                    //        Placing maps spots     //
+                    ///////////////////////////////////
+                    angular.forEach(maps, function(spot) {
+                        addSpot(spot, {'type':4});
                     });
                     
                 });
